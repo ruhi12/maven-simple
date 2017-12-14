@@ -1,6 +1,6 @@
 node {
    
-   stage('Preparation') { // for display purposes
+   stage('Preparation') { // using for display purposes 
       git credentialsId: 'id', url: 'https://github.com/ruhi12/maven-simple.git'
    }
    stage('Build') {
