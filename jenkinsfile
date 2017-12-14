@@ -3,7 +3,7 @@ node {
    stage('Preparation') { // using for display purposes 
       git credentialsId: 'id', url: 'https://github.com/ruhi12/maven-simple.git'
    }
-   stage('Build') {
+   stage('Build') {// for build purpose
       withMaven(jdk: 'java 1.0.151', maven: 'maven 3.5.2') {
     sh 'mvn clean compile'
     }
