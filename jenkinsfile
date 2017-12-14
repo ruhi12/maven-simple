@@ -1,0 +1,27 @@
+node {
+   
+   stage('Preparation') { // for display purposes
+      git credentialsId: 'id', url: 'https://github.com/ruhi12/maven-simple.git'
+   }
+   stage('Build') {
+      withMaven(jdk: 'java 1.0.151', maven: 'maven 3.5.2') {
+    sh 'mvn clean compile'
+    }
+   }
+   stage('Test') {
+      withMaven(jdk: 'java 1.0.151', maven: 'maven 3.5.2') {
+    sh 'mvn test'
+    }
+   }
+   stage('Results') {
+     echo 'results generated'
+   }
+   stage('Archive') {
+       echo 'Archived Test Reports'
+   
+   }
+   stage('Deploy') {
+       echo 'Deployed the artifacts'
+     
+   }
+}
